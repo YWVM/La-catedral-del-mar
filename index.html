@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La catedral del mar · Resumen en carpetas</title>
+<style>
+:root{--bg:#f3e8d0;--card:#fbf4e3;--ink:#2d2218;--mut:#6b5a45;--acc:#8c2f1b;--acc2:#1f5f7a;--line:#cdb88f;--stone:#d9c9a8;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1610;--card:#272017;--ink:#f1e6cf;--mut:#b8a888;--acc:#e08a6c;--acc2:#6cc0dc;--line:#4a3d2b;--stone:#3a3022}}
+:root[data-theme="dark"]{--bg:#1c1610;--card:#272017;--ink:#f1e6cf;--mut:#b8a888;--acc:#e08a6c;--acc2:#6cc0dc;--line:#4a3d2b;--stone:#3a3022}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:780px;margin:0 auto;padding:18px 14px 60px}
+h1{font-size:1.9rem;line-height:1.15;margin:.2em 0;color:var(--acc);text-align:center}
+.sub{text-align:center;color:var(--mut);font-style:italic;margin:0 0 14px}
+.note{background:var(--card);border:1px dashed var(--acc2);border-radius:10px;padding:10px 14px;font-size:.92rem;margin:12px 0}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:12px 0;text-align:center}
+.stones{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:6px}
+.stones i{width:22px;height:16px;border-radius:3px;background:var(--stone);border:1px solid var(--line);transition:.4s}
+.stones i.on{background:var(--acc);transform:translateY(-2px)}
+.f{margin:10px 0;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.f>button{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;cursor:pointer;font-weight:bold}
+.f>button:focus-visible{outline:2px solid var(--acc2);outline-offset:-2px}
+.ic{width:34px;height:34px;flex:none;color:var(--acc)}
+.t2 .ic{color:var(--acc2)}
+.ic .dr{transform-origin:6px 0;transition:transform .35s}
+.ic .lt{opacity:0;transition:opacity .3s}
+.f.open>button .dr{transform:scaleX(.25) skewY(-8deg)}
+.f.open>button .lt{opacity:1}
+.f>button .t{flex:1}
+.f>button small{font-weight:normal;color:var(--mut);display:block;font-size:.8rem}
+.f>button .ar{transition:transform .25s;color:var(--mut)}
+.f.open>button .ar{transform:rotate(90deg)}
+.body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.f.open>.body{grid-template-rows:1fr}
+.body>div{overflow:hidden;min-height:0}
+.in{padding:0 14px 14px}
+.f .f{background:var(--bg);margin:8px 0}
+.f .f .ic{width:28px;height:28px}
+.t1>button{color:var(--acc)}.t2>button{color:var(--acc2)}
+.tag{display:inline-block;font-size:.75rem;background:var(--stone);border-radius:20px;padding:1px 9px;margin:2px 4px 2px 0}
+.chars{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px}
+.ch{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.88rem}
+.ch b{color:var(--acc)}
+.in p{margin:.4em 0}
+.in ul{margin:.3em 0;padding-left:1.2em}.in li{margin:.25em 0}
+.key{background:var(--card);border-left:3px solid var(--acc);padding:6px 10px;margin-top:8px;font-size:.92rem;border-radius:0 8px 8px 0}
+.t2 .key{border-color:var(--acc2)}
+.tl{border-left:2px solid var(--line);margin-left:6px;padding-left:14px}
+.tl p{position:relative;margin:.6em 0}
+.tl p:before{content:"";position:absolute;left:-21px;top:.45em;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+dl{margin:0}dt{font-weight:bold;color:var(--acc)}dd{margin:0 0 8px}
+</style></head><body><main>
+<h1>La catedral del mar</h1>
+<p class="sub">Resumen detallado en carpetas · Temporada 1 y Temporada 2</p>
+<div class="note"><b>Ojo:</b> la serie <i>La catedral del mar</i> (2018) tiene una sola temporada de 8 capítulos. Como “Temporada 2” incluí su continuación oficial, <i>Los herederos de la tierra</i> (Netflix, 2022, 8 capítulos), basada en la novela secuela de Ildefonso Falcones.</div>
+<div class="prog"><span id="pt">Cada capítulo que abras coloca una piedra de la catedral</span><div class="stones" id="st"></div></div>
+<div id="root"></div>
+</main>
+<script>
+const P=[["Arnau Estanyol","Protagonista. Hijo de siervo, llega bebé a Barcelona, crece junto a la catedral, se hace bastaix, luego cambista rico, barón y Cónsul del Mar."],
+["Bernat Estanyol","Su padre, siervo de Navarcles. Huye a Barcelona para que Arnau sea libre; muere ahorcado en la hambruna."],
+["Francesca Esteve","Madre de Arnau. El señor feudal la secuestra y la viola; Arnau la reencuentra convertida en prostituta."],
+["Joan (Joanet)","Hijo adoptivo de Bernat y hermano de crianza de Arnau. Se hace sacerdote e inquisidor fanático."],
+["Mar","Niña huérfana que Arnau adopta. Crece y se convierte en su gran amor; su hijo con Arnau se llama Bernat."],
+["Aledis","Hija del curtidor, amor de juventud de Arnau; lucha por salvarlo."],
+["Sahat","Moro liberto, amigo fiel de Arnau y artífice de su salvación."],
+["Elionor","Segunda esposa de Arnau, impuesta por el rey. Traiciona a Arnau."],
+["Grau Puig y Guiamona","Cuñado y hermana de Bernat. Familia rica que desprecia a Arnau."],
+["Hasdai Crescas","Cambista judío al que Arnau salva y que le enseña el oficio."],
+["Pedro IV de Aragón","Rey que premia a Arnau con una baronía."],
+["Nicolau Eymerich","Gran Inquisidor de Aragón, juez de Arnau."],
+["Hugo Llor","(T2) Joven que sueña con construir barcos; vive bajo la protección de Arnau."],
+["Caterina Llor","(T2) Antigua esclava rusa, segunda esposa de Hugo."],
+["Regina Vilanova","(T2) Judía conversa, primera esposa de Hugo."],
+["Bernat Estanyol (T2)","(T2) Hijo de Arnau y Mar, corsario. Su segunda esposa es Marta Destorrent."],
+["Roger Puig","(T2) De la familia Puig, enemiga de los Estanyol; quiere vengarse."],
+["Dolça Crescas","(T2) Hija del cambista judío Jucef; amor de Hugo."]];
+const TL=[["1319","Bernat huye de Navarcles con el pequeño Arnau."],["1329","Empieza la construcción de Santa María del Mar."],["1334","Hambruna: muere Bernat; Arnau pasa a ser bastaix."],["1343-1348","Guerra con Jaime III de Mallorca y luego la peste negra."],["1356-1360","Arnau hunde su galera, es barón y Cónsul del Mar."],["1384","Juicio inquisitorial y consagración de la catedral (15 de agosto)."],["1387","Comienza Los herederos de la tierra con Hugo Llor."]];
+const S1=[
+["Fugitivos","1319 → 1329",["En 1319, Bernat Estanyol, siervo de Navarcles, huye con su bebé Arnau hacia Barcelona después de que su esposa, Francesca, fue violada y secuestrada por el señor feudal, Llorenç de Bellera.","El capítulo salta a 1329: Arnau ya es un niño y crece en la casa de sus tíos, la familia Puig, en una ciudad que se expande hacia la Ribera, el barrio humilde de pescadores donde se levantará Santa María del Mar."],"Huir de la servidumbre para que Arnau nazca libre."],
+["Hermanos","1329",["Arnau es culpado de la muerte de su primo, lo que hunde a su tía en la melancolía hasta que muere.","En ese mismo año empieza la construcción de Santa María del Mar. Arnau, aún niño, ayuda a los obreros llevándoles agua, y así nace su vínculo con la catedral. También crece junto a Joan (Joanet), hijo adoptivo de Bernat, a quien considera su hermano."],"Primer contacto de Arnau con la obra de la catedral."],
+["Deseo","1334 → 1342",["En abril de 1334 llega la hambruna. Bernat participa en un motín para conseguir comida acaparada por la aristocracia y es ahorcado.","Después Arnau descubre a un ladrón en la catedral y es ascendido a bastaix, el estibador que carga piedras desde Montjuïc, y recibe la capçana, el cojín para llevar el peso en la cabeza.","En 1339 se enamora de la hija del curtidor (Aledis) y pide matrimonio, pero lo rechazan. En 1342, el rey Pedro visita la iglesia."],"Muere Bernat; Arnau se convierte en bastaix."],
+["Arrepentíos","1342 → 1348",["Arnau ya está casado, pero mantiene una aventura con la hija del curtidor. Se construye un puente cubierto del monasterio de los Framenors al puerto, que Jaime III de Mallorca exigió por miedo a un atentado. Se descubre que Jaime preparaba una trampa contra Pedro IV y huye al Rosellón.","El rey declara la guerra y en 1343 Arnau es reclutado. En la campaña se cruza con su madre, ahora prostituta al servicio de las tropas.","Cinco años después vuelve a una Barcelona golpeada por la peste negra, que se lleva a su esposa."],"Guerra, reencuentro con su madre y la peste."],
+["No somos como ellos","1348 → 1356",["Arnau salva a una familia judía de una turba enfurecida. En agradecimiento, el padre le enseña a ser cambista.","Adopta a una niña huérfana cuyos padres murieron por la peste (Mar).","En 1356, ya rico, resuelve los problemas del puerto: los barcos tenían que entrar uno a uno por un paso estrecho y se encallaban en la arena. Compra una galera para remolcar a los más ligeros. También compra las deudas de su tío y expulsa de la ciudad a la familia que lo humilló."],"De bastaix a hombre rico: la gran venganza social."],
+["Secretos","1356 → 1360",["Pedro de Castilla ataca Barcelona mientras las fuerzas de Pedro IV están en Mallorca. Arnau hunde su propia galera para bloquear la entrada del puerto.","Como premio, el rey lo nombra barón de Granollers, Sant Vicenç y Montbui, y le impone una esposa de la corte, Elionor, contra su voluntad. Se mudan al castillo de Montbui. Aledis, ahora prostituta en el negocio de la madre de Arnau, se entera del matrimonio.","Los nobles no aceptan su autoridad por su origen humilde, pero Arnau prohíbe los abusos contra los siervos y los libera. Hacia 1360 es respetado y elegido Cónsul del Mar."],"El héroe del puerto: barón y Cónsul del Mar."],
+["Venganza","1360 en adelante",["Elionor trama que su hijastra (Mar) sea violada y casada con un caballero para poder cobrar la herencia de Arnau. Joanet, ahora sacerdote, participa en la conspiración.","Después Joanet se convierte en un inquisidor fanático y es enviado a los Pirineos; su amistad con Arnau se rompe.","Crece el antisemitismo y Elionor acusa falsamente a Arnau de una relación con una mujer judía, un delito por el que va a prisión."],"Traiciones de su esposa y de su hermano."],
+["Condenado","Juicio y final · 1384",["Los enemigos de Arnau lo llevan ante el Gran Inquisidor de Aragón, Nicolau Eymerich: su madre es acusada de bruja y él de ser hijo del Diablo.","Joan, Sahat, Aledis y Mar intentan salvarlo. Los bastaixos provocan una revuelta, pagan al rey y los inquisidores terminan aceptando la ley: Arnau y su madre son liberados, ante la celebración de Barcelona.","Joan se inmola y mata a Elionor. Sahat logra que Arnau se case legalmente con Mar, viuda de su primer esposo. La serie cierra el 15 de agosto de 1384: Arnau, Mar y su hijo Bernat entran a la catedral ya terminada."],"El pueblo salva a Arnau; la catedral se consagra."]];
+const S2=[
+["Destino","Barcelona, 1387",["Arnau y Mar temen por su seguridad ante la posibilidad de que un nuevo rey ocupe el trono.","Una tragedia separa a Hugo Llor, un niño de 12 años que sueña con ser constructor de barcos, de su familia, y se convierte en aprendiz en los astilleros."],"Hugo queda solo y empieza a aprender el oficio."],
+["Penitencia","Un hogar",["Los amigos de Arnau le dan a Hugo un lugar donde vivir. Allí una joven llama su atención: Dolça, hija del cambista judío Jucef Crescas, amigo de Arnau."],"Nace el vínculo con la familia Crescas."],
+["Talión","Persecución",["Hugo busca a su familia después de que le aconsejan olvidar lo que siente por Dolça.","Mientras tanto, el horror se abre paso cuando los judíos son perseguidos en Barcelona; un ladrón conocido como Perro Calvo instiga el pogromo."],"Ataque a los judíos de la ciudad."],
+["Herida","Venganza en la bodega",["Roger Puig, de la familia enemiga de los Estanyol, obliga a Hugo a trabajar en la bodega de su palacio.","Eso le da al maestro vinatero (Mahir) una excelente y peligrosa oportunidad de venganza."],"Los Puig usan al protegido de Arnau."],
+["Esclavos","Hugo, bajo custodia",["Hugo queda bajo custodia y Regina, judía conversa que será su primera esposa, ruega que lo liberen.","Su amor por él es una espada de doble filo y trae consecuencias."],"El amor y la esclavitud complican su vida."],
+["Beatriz","Promesas cumplidas",["Bernat Estanyol, corsario e hijo de Arnau y Mar, cumple las promesas que le hizo a Hugo.","Beatriz (Arsenda) es la hermana de Hugo, futura abadesa del monasterio de Bonrepòs."],"Bernat protege a Hugo; entra en escena su hermana."],
+["Veneno","La verdad sobre su esposa",["Caterina, antigua esclava rusa y futura esposa de Hugo, le pide que no pierda la esperanza mientras busca a Mercè.","Bernat descubre la verdad sobre su esposa (Marta Destorrent) y la Iglesia lo presiona a actuar."],"Se destapan secretos familiares."],
+["Redención","Salvar a Arnau",["Guerau, mano derecha de Bernat, pide a Hugo y Caterina que lo ayuden a salvar a Arnau, pues sospecha que Marta lo está envenenando.","El capítulo cierra el ciclo de promesas y lealtades hacia la familia Estanyol."],"Hugo devuelve el favor a su protector."]];
+const DR='<svg class="ic" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 32V14Q5 5 17 2Q29 5 29 14V32Z" fill="var(--stone)"/><g class="lt"><path d="M9 32V15Q9 9 17 6Q25 9 25 15V32Z" fill="#f2c14e" stroke="none"/></g><g class="dr"><path d="M9 32V15Q9 9 17 6V32Z" fill="currentColor" stroke="none" transform="translate(0,0)"/><circle cx="15" cy="21" r="1.3" fill="var(--stone)" stroke="none"/></g><path d="M17 2V0M13 3L11 1M21 3L23 1" stroke-width="1.5"/></svg>';
+const root=document.getElementById('root'),st=document.getElementById('st'),seen=new Set();
+for(let i=0;i<16;i++)st.innerHTML+='<i></i>';
+function F(cls,title,sm,inner,key){const d=document.createElement('div');d.className='f '+cls;
+d.innerHTML='<button aria-expanded="false">'+DR+'<span class="t">'+title+(sm?'<small>'+sm+'</small>':'')+'</span><span class="ar">▶</span></button><div class="body"><div><div class="in"></div></div></div>';
+const b=d.firstChild,inn=d.querySelector('.in');
+if(typeof inner==='string')inn.innerHTML=inner;else inner.forEach(x=>inn.appendChild(x));
+d.dataset.k=key||'';
+b.onclick=()=>{const o=d.classList.toggle('open');b.setAttribute('aria-expanded',o);
+if(o&&d.dataset.k&&!seen.has(d.dataset.k)){seen.add(d.dataset.k);st.children[seen.size-1].classList.add('on');
+document.getElementById('pt').textContent='Piedras colocadas: '+seen.size+' de 16'+(seen.size==16?' · ¡catedral terminada!':'')}};
+return d}
+function season(arr,pre){return arr.map((e,i)=>F('','Capítulo '+(i+1)+': '+e[0],e[1],e[2].map(x=>'<p>'+x+'</p>').join('')+'<div class="key"><b>Clave:</b> '+e[3]+'</div>',pre+i))}
+function el(h){const d=document.createElement('div');d.innerHTML=h;return d}
+root.appendChild(F('','Personajes','Quién es quién',[el('<div class="chars">'+P.map(p=>'<div class="ch"><b>'+p[0]+'</b><br>'+p[1]+'</div>').join('')+'</div>')]));
+root.appendChild(F('','Línea de tiempo','De 1319 a 1387',[el('<div class="tl">'+TL.map(t=>'<p><b>'+t[0]+'</b> · '+t[1]+'</p>').join('')+'</div>')]));
+root.appendChild(F('t1','Temporada 1 · La catedral del mar','8 capítulos · 2018 · Antena 3',[el('<span class="tag">Barcelona s. XIV</span><span class="tag">Santa María del Mar</span><span class="tag">Amor</span><span class="tag">Venganza</span><span class="tag">Traición</span>'),...season(S1,'a')]));
+root.appendChild(F('t2','Temporada 2 · Los herederos de la tierra','8 capítulos · 2022 · Netflix · secuela',[el('<span class="tag">Barcelona 1387</span><span class="tag">Hugo Llor</span><span class="tag">Promesas</span><span class="tag">Astilleros</span>'),...season(S2,'b')]));
+root.appendChild(F('','Glosario','Palabras clave',[el('<dl><dt>Siervo</dt><dd>Campesino atado al señor feudal, sin libertad.</dd><dt>Bastaix</dt><dd>Estibador que cargaba piedras al hombro para construir la catedral.</dd><dt>Cambista</dt><dd>Persona que cambia monedas y presta dinero.</dd><dt>Cónsul del Mar</dt><dd>Autoridad que resolvía asuntos del comercio marítimo.</dd><dt>Inquisición</dt><dd>Tribunal religioso que perseguía a los acusados de herejía.</dd><dt>Ribera</dt><dd>Barrio marinero de Barcelona donde se levanta Santa María del Mar.</dd></dl>')]));
+</script></body></html>
